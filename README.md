@@ -4,8 +4,6 @@
 
 ## Installation
 
-`uv`.
-
 In order to use the MotifStudio Python SDK, you need to install the `motifstudio` package. You can do this using pip or `uv`:
 
 ```bash
