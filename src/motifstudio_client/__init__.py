@@ -11,7 +11,7 @@ from typing import Literal
 import pydantic
 import networkx as nx
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 
 _MotifAggregationTypes = Literal[
@@ -34,7 +34,7 @@ class _HostLookup(dict):
 
     _cached_graphs: dict[str, HostListing] = {}
 
-    def __init__(self, motif_studio: "MotifStudio"):
+    def __init__(self, motif_studio: "MotifStudioClient"):
         self._api = motif_studio
         self._cached_graphs = {
             item["id"]: item
@@ -77,7 +77,7 @@ class _HostLookup(dict):
 
 class _HostQueries:
 
-    def __init__(self, host_id: str, motif_studio: "MotifStudio"):
+    def __init__(self, host_id: str, motif_studio: "MotifStudioClient"):
         self.host_id = host_id
         self._api = motif_studio
 
@@ -155,14 +155,14 @@ class _HostQueries:
 
 class _QueryProvider:
 
-    def __init__(self, motif_studio: "MotifStudio"):
+    def __init__(self, motif_studio: "MotifStudioClient"):
         self._api = motif_studio
 
     def __call__(self, host_id: str):
         return _HostQueries(host_id, self._api)
 
 
-class MotifStudio:
+class MotifStudioClient:
     """
     The MotifStudio class provides an interface to the Motif Studio API.
     """

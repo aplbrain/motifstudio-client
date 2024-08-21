@@ -19,6 +19,7 @@ uv add motifstudio-client
 To use the MotifStudio Python SDK, you need to create an instance of the `MotifStudioClient` class and provide the API endpoint. You can then use this instance to interact with the API. (The SDK defaults to the public API endpoint but if you are using a private instance, you can specify the URL.)
 
 ```python
+from motifstudio_client import MotifStudioClient
 m = MotifStudioClient("https://api.motifstudio.bossdb.org")
 ```
 
